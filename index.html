@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>WebAR Auto</title>
+</head>
+<body>
+  <a id="arLink" rel="ar" href="model.usdz" style="display: none;">
+    AR
+  </a>
+
+  <script>
+    const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isiOS) {
+      // Próba automatycznego kliknięcia linku rel="ar"
+      setTimeout(() => {
+        document.getElementById('arLink').click();
+      }, 100);
+    } else {
+      // Android – Scene Viewer
+      window.location.href =
+        'intent://arvr.google.com/scene-viewer/1.0?file=' +
+        encodeURIComponent(window.location.origin + '/model.glb') +
+        '#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;end;';
+    }
+  </script>
+</body>
+</html>
