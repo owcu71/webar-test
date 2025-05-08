@@ -5,16 +5,17 @@
   <title>WebAR Model</title>
 </head>
 <body>
-  <p>Ładowanie modelu AR...</p>
-
   <script>
     const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     if (isiOS) {
-      // iOS – otwiera plik .usdz w Quick Look
-      window.location.href = 'model.usdz';
+      document.write(`
+        <a rel="ar" href="model.usdz">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/3D_icon.png/240px-3D_icon.png" alt="Zobacz model w AR" width="200">
+        </a>
+      `);
     } else {
-      // Android – otwiera model.glb w Scene Viewer
+      // Android – Scene Viewer
       window.location.href =
         'intent://arvr.google.com/scene-viewer/1.0?file=' +
         encodeURIComponent(window.location.origin + '/model.glb') +
