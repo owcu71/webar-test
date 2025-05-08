@@ -11,11 +11,11 @@
     if (isiOS) {
       document.write(`
         <a rel="ar" href="model.usdz">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/3D_icon.png/240px-3D_icon.png" alt="Zobacz model w AR" width="200">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/3D_icon.png/240px-3D_icon.png" alt="Zobacz model w AR" width="200" />
         </a>
+        <p>Dotknij ikony powyżej, aby otworzyć model w rozszerzonej rzeczywistości</p>
       `);
     } else {
-      // Android – Scene Viewer
       window.location.href =
         'intent://arvr.google.com/scene-viewer/1.0?file=' +
         encodeURIComponent(window.location.origin + '/model.glb') +
